@@ -1,7 +1,7 @@
-// ignore_for_file: must_be_immutable, avoid_print, prefer_const_constructors_in_immutables
+// ignore_for_file: must_be_immutable, avoid_print
 
 import 'package:flutter/material.dart';
-import 'package:todo_list_app/todo_model.dart';
+import 'package:todo_list_app/models/todo_model.dart';
 import 'package:todo_list_app/util.dart';
 import 'package:todo_list_app/widgets/display_text.dart';
 

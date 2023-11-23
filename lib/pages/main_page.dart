@@ -5,7 +5,7 @@ import 'package:todo_list_app/pages/calendar_page.dart';
 import 'package:todo_list_app/pages/focuse_page.dart';
 import 'package:todo_list_app/pages/profile_page.dart';
 import 'package:todo_list_app/pages/home_page.dart';
-import 'package:todo_list_app/todo_model.dart';
+import 'package:todo_list_app/models/todo_model.dart';
 import 'package:todo_list_app/widgets/my_floting_action_button.dart';
 
 class MainPage extends StatefulWidget {

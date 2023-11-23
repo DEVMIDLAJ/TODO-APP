@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:todo_list_app/domain/functions.dart';
-import 'package:todo_list_app/todo_model.dart';
+import 'package:todo_list_app/models/todo_model.dart';
 import 'package:todo_list_app/widgets/custom_elevatedbutton.dart.dart';
 import 'package:todo_list_app/widgets/display_text.dart';
 
