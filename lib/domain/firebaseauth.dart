@@ -3,13 +3,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter/material.dart';
-
 import '../pages/main_page.dart';
 
-class FirebaseAuthservice with ChangeNotifier{
+class FirebaseAuthservice with ChangeNotifier {
   FirebaseAuth auth = FirebaseAuth.instance;
   final _googleSignIn = GoogleSignIn();
 
+  // Sign up with email and password
   Future<User?> signUpwithusernameandpassword(
       String Email, String password) async {
     try {
@@ -22,6 +22,7 @@ class FirebaseAuthservice with ChangeNotifier{
     notifyListeners();
   }
 
+  // Signin with email and password
   Future<User?> siningwithusernameandpassword(
       String Email, String password) async {
     try {
@@ -32,10 +33,10 @@ class FirebaseAuthservice with ChangeNotifier{
     } on FirebaseAuthException catch (e) {
       print('Some Error occured');
     }
-        notifyListeners();
-
+    notifyListeners();
   }
 
+  // Signin with Google
   signinWithGoogle(BuildContext context) async {
     try {
       final GoogleSignInAccount? googleSignInAccount =
@@ -48,6 +49,7 @@ class FirebaseAuthservice with ChangeNotifier{
           idToken: googleSignInAuthentication.idToken,
         );
         await auth.signInWithCredential(authCredential);
+        // Navigate to the main page after successful sign-in
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
@@ -59,7 +61,6 @@ class FirebaseAuthservice with ChangeNotifier{
       print(e.message);
       throw e;
     }
-        notifyListeners();
-
+    notifyListeners();
   }
 }

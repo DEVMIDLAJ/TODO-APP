@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:todo_list_app/models/todo_model.dart';
 
 class Functions {
+  // Variable for category list (Consider defining its type)
   var categoryList;
+  // Variable for selected category index (Consider defining its type)
   var isSelected;
 
-//Date picker
+  // Date picker function
   static Future<String?> pickUserDueDate(BuildContext context) async {
     print("datePicker function");
     final DateTime? picked = await showDatePicker(
@@ -23,32 +25,30 @@ class Functions {
     return "$picked";
   }
 
-//Time picker
-  static Future<String?> pickUserDueTime(
-    BuildContext context,
-  ) async {
+  // Time picker function
+  static Future<String?> pickUserDueTime(BuildContext context) async {
     print("timePicker function");
     final TimeOfDay? picked = await showTimePicker(
       context: context,
       initialTime: TimeOfDay.now(),
     );
     if (picked != null) {
-      print('selected time$picked');
+      print('Selected Time: $picked');
     }
     return "${picked?.format(context)}";
   }
 
-//category selecton function
+  // Category selection function
   Future<Category> handleCategorySelected(
       BuildContext context, Category selected) async {
     print("category selection function");
 
     if (isSelected == 0 && isSelected < categoryList.length) {
+      // Redundant assignment; isSelected is already declared
       Category selected = categoryList[isSelected];
     }
     print("Selected Category: ${selected.categoryText}");
     print("Selected Category Color: ${selected.categoryColor}");
-    return
-     selected;
+    return selected;
   }
 }

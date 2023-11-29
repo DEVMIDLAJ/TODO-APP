@@ -12,10 +12,14 @@ import 'package:todo_list_app/pages/welcome_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  //  SharedPreferences prefs = await SharedPreferences.getInstance();
-await Firebase.initializeApp(
-  options: DefaultFirebaseOptions.currentPlatform,
-);  runApp(const TodoApp());
+
+  // Initialize Firebase
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  
+  // Run the TodoApp widget
+  runApp(const TodoApp());
 }
 
 class TodoApp extends StatelessWidget {
@@ -23,62 +27,54 @@ class TodoApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     // myPrifrences pfs = myPrifrences();
+    // Initialize providers
     return MultiProvider(
-        providers: [
-          ChangeNotifierProvider(
-            create: (context) => TodoProvider(),
-          ),
-        ],
-        // child: FutureBuilder(
-        //     future: pfs.userAllReadyLoggin(),
-        //     builder: (context, snap) {
-        // return MultiProvider(
-        //   providers: [
-        //     ChangeNotifierProvider(
-        //       create: (context) => TodoProvider(),
-        //     ),
-        //   ],
-          child:
-         MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo',
-          darkTheme: ThemeData.dark(),
-          themeMode: ThemeMode.dark,
-          theme: ThemeData(
-            primarySwatch: Colors.purple,
-          ),
-          home: AnimatedSplashScreen(
-            splash: const Center(
-              child: Column(
-                children: [
-                  Icon(
-                    Icons.check_box_outlined,
-                    size: 50,
-                    color: Colors.purple,
-                  ),
-                  Text(
-                    "UP TODO",
-                  ),
-                ],
-              ),
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => TodoProvider(),
+        ),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        darkTheme: ThemeData.dark(),
+        themeMode: ThemeMode.dark,
+        theme: ThemeData(
+          primarySwatch: Colors.purple,
+        ),
+        home: AnimatedSplashScreen(
+          // Splash screen widget with a logo and app name
+          splash: const Center(
+            child: Column(
+              children: [
+                Icon(
+                  Icons.check_box_outlined,
+                  size: 50,
+                  color: Colors.purple,
+                ),
+                Text(
+                  "UP TODO",
+                ),
+              ],
             ),
-            
-            nextScreen: StreamBuilder<User?>(
-              stream: FirebaseAuth.instance.authStateChanges(),
-              builder: (context, snapshot) {
-                if(snapshot.hasData){
-                  return const MainPage();
-                }
-                return const WellcomePage();
+          ),
+          
+          // Determine the next screen based on the user's authentication state
+          nextScreen: StreamBuilder<User?>(
+            stream: FirebaseAuth.instance.authStateChanges(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return const MainPage();
               }
-            ),
-            // snap.data == true ? const MainPage() : const WellcomePage(),
-            backgroundColor: Colors.black,
+              return const WellcomePage();
+            },
           ),
-        ));
+          
+          backgroundColor: Colors.black,
+        ),
+      ),
+    );
   }
-  //  ),
-  // );
 }
-//}
+
+

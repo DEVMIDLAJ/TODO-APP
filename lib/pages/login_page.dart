@@ -32,7 +32,6 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    print("register screen");
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(

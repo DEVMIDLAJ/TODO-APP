@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
-class CalendarScreen extends StatelessWidget {
-  const CalendarScreen({super.key});
+class CalendarPge extends StatelessWidget {
+  const CalendarPge({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -14,9 +14,7 @@ class MyFloatingActionButton extends StatelessWidget {
   MyFloatingActionButton({super.key, 
   context, required this.updateModelSheet
   });
-
   final taskController = TextEditingController();
-
   final discriptionController = TextEditingController();
 
   String? selectedDate;
@@ -79,7 +77,7 @@ class MyFloatingActionButton extends StatelessWidget {
                           onTap: () {
                             if (taskController.text == null ||
                                 taskController.text.isEmpty) {
-                              print("Please Enter UserName");
+                              print("Please Enter Task");
                             } else {
                               return null;
                             }
@@ -181,8 +179,6 @@ class MyFloatingActionButton extends StatelessWidget {
                                 );
                                 print(selectedIndex);
                                 selectedTaskInstance = selectedIndex;
-                                // print('selectedIndex {$selectedTaskInstance+1}'
-                                //  .toString());
                               },
                               icon: const Icon(Icons.flag),
                             ),
@@ -200,7 +196,7 @@ class MyFloatingActionButton extends StatelessWidget {
                                 );
                                 Navigator.of(context).pop(newTask);
 
-                              //  updateModelSheet();
+                                updateModelSheet();
                                 taskController.clear();
                                 discriptionController.clear();
                                 selectedTime = null;

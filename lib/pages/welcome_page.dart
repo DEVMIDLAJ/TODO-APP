@@ -9,9 +9,7 @@ class WellcomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   
-    print("wellcome screen");
-    return SafeArea(
+       return SafeArea(
       child: Scaffold(
         appBar: AppBar(
           leading: const Icon(

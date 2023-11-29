@@ -19,6 +19,7 @@ class _TaskSelectionScreenState extends State<TaskSelectionScreen> {
 
   @override
   Widget build(BuildContext context) {
+    print("task selection screen opened");
     Size size = MediaQuery.of(context).size;
     final todoProvider = context.watch<TodoProvider>();
     return Scaffold(
@@ -60,17 +61,13 @@ class _TaskSelectionScreenState extends State<TaskSelectionScreen> {
                           // setState(() {
                           //   selectedIndex = '${index + 1}'.toString();
                           // });
-                          // Provider.of<TodoProvider>(context, listen: false)
-                          //     .selectedIndex = '${index + 1}'.toString();
-                          // todoProvider.selectedIndex='${index + 1}'.toString();
-                          data.setCurrentIndex(context,index:'${index + 1}'.toString() );
+                        data.setCurrentIndex(context,index:'${index + 1}'.toString() );
                         },
                         child: Container(
                           height: 64,
                           width: 64,
                           decoration: BoxDecoration(
                             color:data.selectedIndex=='${index+1}'.toString()
-                                // Provider.of<TodoProvider>(context, listen: false).selectedIndex =='${index + 1}'
                                 // selectedIndex == '${index + 1}'.toString()
                                 ? Colors.blue
                                 : Colors.black,
@@ -122,8 +119,7 @@ class _TaskSelectionScreenState extends State<TaskSelectionScreen> {
                           ButtonHight: 50,
                           BottonWidth: 140,
                           Buttonaction: () {
-                           // Navigator.of(context).pop(todoProvider.selectedIndex);
-                           Navigator.of(context).pop();
+                           Navigator.of(context).pop(todoProvider.selectedIndex);
                           },
                           ButtonText: "Save"),
                     ],

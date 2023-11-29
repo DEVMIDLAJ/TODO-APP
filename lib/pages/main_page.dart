@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print, unused_field, prefer_const_constructors
+// ignore_for_file: unused_field, avoid_print, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:todo_list_app/pages/calendar_page.dart';
@@ -17,10 +17,13 @@ class MainPage extends StatefulWidget {
 
 class _HomeScreenState extends State<MainPage>
     with SingleTickerProviderStateMixin {
+  // Color variable for tracking the selected color
   Color selectedColor = Colors.blue;
 
+  // List to hold Todo items
   List<Todo> todos = [];
 
+  // TabController for handling tab changes
   TabController? _tabController;
 
   @override
@@ -29,13 +32,17 @@ class _HomeScreenState extends State<MainPage>
     _tabController = TabController(length: 4, vsync: this);
   }
 
+  // Index for controlling the IndexedStack and BottomNavigationBar
   int _cIndex = 0;
 
   @override
   Widget build(BuildContext context) {
+    // Print statement for debugging or logging purposes
     print("mainPage");
+
     return Scaffold(
       appBar: AppBar(
+        // AppBar with a leading filter icon, title, and user avatar
         leading: IconButton(
           icon: const Icon(
             Icons.filter_list,
@@ -54,15 +61,17 @@ class _HomeScreenState extends State<MainPage>
         centerTitle: true,
       ),
       body: IndexedStack(
+        // IndexedStack to display the appropriate page based on the index
         index: _cIndex,
         children: [
-           HomePage(),
-           CalendarScreen(),
+          HomePage(),
+           CalendarPge(),
            FocusePage(),
            profilePage(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        // BottomNavigationBar for navigation between different pages
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.grey,
         showSelectedLabels: true,
@@ -87,7 +96,7 @@ class _HomeScreenState extends State<MainPage>
                 Icons.access_time,
                 color: Colors.grey,
               ),
-              label: "Focuce"),
+              label: "Focus"),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.person_outline_outlined,
@@ -104,12 +113,12 @@ class _HomeScreenState extends State<MainPage>
     );
   }
 
-  //boottomsheet updation while a value is returing from the bottom sheet page
+  // Method to update the model sheet based on the bottom sheet result
   void _updateModelSheet() {
     setState(() {});
   }
 
-  ///bottomnavigation screen changer
+  // Method to handle bottom navigation item tap and switch between pages
   void onItemTapped(index) {
     setState(() {
       _cIndex = index;

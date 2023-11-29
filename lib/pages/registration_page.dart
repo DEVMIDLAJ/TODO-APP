@@ -10,9 +10,6 @@ import 'package:todo_list_app/widgets/custom_elevatedbutton.dart.dart';
 import 'package:todo_list_app/widgets/custom_textformfield.dart';
 import 'package:todo_list_app/widgets/display_text.dart';
 
-// String userName = "midlaj";
-// String userPassword = "12345";
-
 class RegisterationPage extends StatefulWidget {
   const RegisterationPage({super.key});
 
@@ -37,7 +34,6 @@ class _RegisterationPageState extends State<RegisterationPage> {
 
   @override
   Widget build(BuildContext context) {
-    print("register screen");
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -206,16 +202,9 @@ class _RegisterationPageState extends State<RegisterationPage> {
     );
   }
 
-//sharedprifrence class object
-  // myPrifrences prs = myPrifrences();
 // Reisteration button
   void UserRegisteredin(BuildContext ctx) async {
     if (_formfield.currentState!.validate()) {
-      //  prs.getUserRegisterDataSave(
-      //   context: ctx,
-      //   username1: _Usernamecontroller.text,
-      //   password1: _passwordcontroller.text,
-      // );
       _Usernamecontroller.text;
       _Emailcontroller.text;
       _passwordcontroller.text;

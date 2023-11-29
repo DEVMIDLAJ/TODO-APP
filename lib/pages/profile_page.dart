@@ -2,8 +2,6 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-// import 'package:todo_list_app/domain/firebaseauth.dart';
-// import 'package:todo_list_app/domain/prefrences.dart';
 import 'package:todo_list_app/pages/login_page.dart';
 
 class profilePage extends StatelessWidget {

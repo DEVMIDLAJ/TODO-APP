@@ -17,6 +17,7 @@ class CategorySelection extends StatelessWidget {
   Category? selected;
 
   List<Category> categoryList = [
+    // List of categories with different colors, icons, and text
     Category(
         categoryColor: Colors.amber,
         categoryIcon: Icons.radar_outlined,
@@ -61,15 +62,13 @@ class CategorySelection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-        Size size = MediaQuery.of(context).size;
-
-    print("Category screen");
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Center(
         child: Container(
           margin: const EdgeInsets.all(20),
           padding: const EdgeInsets.all(10),
-          height: size.height*2,
+          height: size.height * 2,
           width: 600,
           color: Colors.white10,
           child: Column(
@@ -87,6 +86,7 @@ class CategorySelection extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
+              // GridView for displaying categories
               GridView.builder(
                 shrinkWrap: true,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -98,10 +98,8 @@ class CategorySelection extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () async {
-                      selected = await Functions()
-                              .handleCategorySelected(
-                                  context, categoryList.elementAt(index))
-                          as Category?;
+                      selected = await Functions().handleCategorySelected(
+                          context, categoryList.elementAt(index)) as Category?;
                     },
                     child: Column(
                       children: [
@@ -130,6 +128,7 @@ class CategorySelection extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
+              // Row for Cancel and Save buttons
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
